@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using {{ project_name }}.Domain.Entities;
+using {{ project_name }}.Domain.Interfaces;
+
+namespace {{ project_name }}.Infrastructure.Repositories
+{
+    public class {{ entity.name }}Repository : I{{ entity.name }}Repository
+    {
+        // Simplified repository implementation
+        public async Task<{{ entity.name }}> GetByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<{{ entity.name }}>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task AddAsync({{ entity.name }} entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task UpdateAsync({{ entity.name }} entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task DeleteAsync({{ entity.name }} entity)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+        {
+            return await _context.Set<{{ entity.name }}, id);
+        }
+
+        public async Task<IEnumerable<{{ entity.name }}>> GetAllAsync()
+        {
+            return _context.Set<{{ entity.name }}>().AsEnumerable();
+        }
+
+        public async Task AddAsync({{ entity.name }} entity)
+        {
+            await _context.Set<{{ entity.name }}>().AddAsync(entity);
+        }
+
+        public async Task UpdateAsync({{ entity.name }} entity)
+        {
+            _context.Set<{{ entity.name }}>().Update(entity);
+        }
+
+        public async Task DeleteAsync({{ entity.name }} entity)
+        {
+            _context.Set<{{ entity.name }}>().Remove(entity);
+        }
+    }
+}

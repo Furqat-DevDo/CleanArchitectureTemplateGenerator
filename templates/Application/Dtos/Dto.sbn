@@ -1,0 +1,10 @@
+using System;
+
+namespace {{ project_name }}.Application.DTOs
+{
+    public class {{ entity.name }}Dto
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+}

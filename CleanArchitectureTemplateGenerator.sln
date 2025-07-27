@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.Core", "CleanArchitectureTemplateGenerator.Core\CleanArchitectureTemplateGenerator.Core.csproj", "{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.CLI", "CleanArchitectureTemplateGenerator.CLI\CleanArchitectureTemplateGenerator.CLI.csproj", "{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

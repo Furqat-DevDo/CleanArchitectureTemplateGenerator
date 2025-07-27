@@ -1,0 +1,41 @@
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using {{ project_name }}.Application.Commands.{{ entity.name }}s;
+using {{ project_name }}.Application.Queries.{{ entity.name }}s;
+
+namespace {{ project_name }}.Presentation.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class {{ entity.name }}sController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+
+        public {{ entity.name }}sController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        // Simplified controller - no loops for now
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            // Simplified implementation
+            return Ok();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            // Simplified implementation
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create()
+        {
+            // Simplified implementation
+            return Ok();
+        }
+    }
+}

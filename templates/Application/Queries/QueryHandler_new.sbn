@@ -1,0 +1,28 @@
+using MediatR;
+using {{ project_name }}.Application.DTOs;
+using {{ project_name }}.Application.Interfaces;
+
+namespace {{ project_name }}.Application.Queries.{{ entity.name }}s
+{
+    public class {{ query.name }}Query : IRequest<{{ query.result_type }}>
+    {
+        // Simplified query - no conditional properties for now
+        public Guid Id { get; set; }
+    }
+
+    public class {{ query.name }}QueryHandler : IRequestHandler<{{ query.name }}Query, {{ query.result_type }}>
+    {
+        private readonly I{{ entity.name }}Repository _repository;
+
+        public {{ query.name }}QueryHandler(I{{ entity.name }}Repository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<{{ query.result_type }}> Handle({{ query.name }}Query request, CancellationToken cancellationToken)
+        {
+            // Simplified implementation
+            throw new NotImplementedException();
+        }
+    }
+}

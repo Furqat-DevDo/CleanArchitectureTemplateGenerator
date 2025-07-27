@@ -1,0 +1,29 @@
+using MediatR;
+using {{ project_name }}.Application.Interfaces;
+using {{ project_name }}.Domain.Entities;
+
+namespace {{ project_name }}.Application.Commands.{{ entity.name }}s
+{
+    public class {{ command.name }}Command : IRequest<{{ default_value command.result_type "Unit" }}>
+    {
+        // Simplified command - no property loops for now
+        public Guid Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+    }
+
+    public class {{ command.name }}CommandHandler : IRequestHandler<{{ command.name }}Command, {{ default_value command.result_type "Unit" }}>
+    {
+        private readonly I{{ entity.name }}Repository _repository;
+
+        public {{ command.name }}CommandHandler(I{{ entity.name }}Repository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<{{ default_value command.result_type "Unit" }}> Handle({{ command.name }}Command request, CancellationToken cancellationToken)
+        {
+            // Simplified implementation
+            throw new NotImplementedException();
+        }
+    }
+}
