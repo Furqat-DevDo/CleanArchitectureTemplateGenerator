@@ -9,6 +9,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { ProjectPanelComponent } from './panels/project-panel.component';
 import { EntitiesPanelComponent } from './panels/entities-panel.component';
@@ -18,6 +20,7 @@ import { FlowchartCanvasComponent } from './flowchart-canvas.component';
 
 import { ProjectStateService } from '../services/project-state.service';
 import { ProjectGeneratorService } from '../services/project-generator.service';
+import { GenerationProgressDialogComponent } from './dialogs/generation-progress-dialog.component';
 
 export type MenuSection = 'project' | 'entities' | 'relationships' | 'validations';
 
@@ -185,7 +188,9 @@ export class MainLayoutComponent implements OnInit {
 
   constructor(
     private projectState: ProjectStateService,
-    private projectGenerator: ProjectGeneratorService
+    private projectGenerator: ProjectGeneratorService,
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -253,17 +258,59 @@ export class MainLayoutComponent implements OnInit {
   }
 
   generateProject() {
-    this.isGenerating = true;
     const project = this.projectState.getProject();
 
-    this.projectGenerator.generateProject(project).subscribe({
-      next: (blob) => {
-        this.projectGenerator.downloadFile(blob, `${project.projectName}.zip`);
+    // Validate project has required data
+    if (!project.projectName || project.projectName.trim() === '') {
+      this.snackBar.open('Please enter a project name before generating', 'Close', {
+        duration: 5000,
+        panelClass: ['error-snackbar']
+      });
+      return;
+    }
+
+    if (project.entities.length === 0) {
+      this.snackBar.open('Please add at least one entity before generating', 'Close', {
+        duration: 5000,
+        panelClass: ['warning-snackbar']
+      });
+      return;
+    }
+
+    this.isGenerating = true;
+
+    // Start async generation
+    this.projectGenerator.generateProjectAsync(project).subscribe({
+      next: (response) => {
         this.isGenerating = false;
+
+        // Show progress dialog
+        const dialogRef = this.dialog.open(GenerationProgressDialogComponent, {
+          width: '500px',
+          disableClose: true,
+          data: {
+            jobId: response.jobId,
+            projectName: project.projectName
+          }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          if (result?.action === 'download') {
+            this.snackBar.open(`Project "${project.projectName}" downloaded successfully!`, 'Close', {
+              duration: 5000,
+              panelClass: ['success-snackbar']
+            });
+          }
+        });
       },
       error: (error) => {
-        console.error('Generation failed:', error);
+        console.error('Failed to start generation:', error);
         this.isGenerating = false;
+
+        this.snackBar.open('Failed to start project generation. Please try again.', 'Close', {
+          duration: 5000,
+          panelClass: ['error-snackbar']
+        });
       }
     });
   }

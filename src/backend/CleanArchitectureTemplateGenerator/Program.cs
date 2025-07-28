@@ -1,4 +1,6 @@
 ﻿using CleanArchitectureTemplateGenerator.Core.Services;
+using CleanArchitectureTemplateGenerator.Services;
+using CleanArchitectureTemplateGenerator.Hubs;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,9 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+// Add SignalR
+builder.Services.AddSignalR();
+
 // Add CORS
 builder.Services.AddCors(options =>
 {
@@ -31,6 +36,9 @@ builder.Services.AddCors(options =>
 // Register services
 builder.Services.AddScoped<IProjectGeneratorService, ProjectGeneratorService>();
 builder.Services.AddScoped<IZipService, ZipService>();
+builder.Services.AddSingleton<BackgroundGenerationService>();
+builder.Services.AddHostedService<BackgroundGenerationService>(provider =>
+    provider.GetRequiredService<BackgroundGenerationService>());
 
 var app = builder.Build();
 
@@ -50,5 +58,6 @@ if (app.Environment.IsProduction())
 app.UseCors("AllowAngular");
 app.UseAuthorization();
 app.MapControllers();
+app.MapHub<GenerationProgressHub>("/hub/generation-progress");
 
 app.Run();
