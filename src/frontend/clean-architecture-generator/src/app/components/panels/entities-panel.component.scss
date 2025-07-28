@@ -1,0 +1,373 @@
+.entities-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.panel-header {
+  padding: 24px 24px 20px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: 1px solid #e2e8f0;
+
+  h2 {
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+
+    mat-icon {
+      font-size: 26px;
+      width: 26px;
+      height: 26px;
+    }
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.panel-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.add-entity-card {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+
+  .mat-mdc-card-header {
+    background: #f8fafc;
+    border-radius: 12px 12px 0 0;
+
+    .mat-mdc-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+  }
+
+  .add-entity-form {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+
+    .entity-name-field {
+      flex: 1;
+
+      .mat-mdc-form-field {
+        .mat-mdc-text-field-wrapper {
+          border-radius: 8px;
+        }
+      }
+    }
+
+    button {
+      height: 56px;
+      border-radius: 8px;
+      font-weight: 500;
+      background: #667eea;
+
+      &:hover {
+        background: #5a67d8;
+      }
+
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.entities-list {
+  .entity-panel {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+
+    &.mat-expanded {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .mat-expansion-panel-header {
+      padding: 16px 20px;
+      background: #fafbfc;
+
+      &:hover {
+        background: #f1f5f9;
+      }
+    }
+
+    .entity-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+
+      .entity-color {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .entity-name {
+        font-weight: 600;
+        color: #1e293b;
+        flex: 1;
+        font-size: 15px;
+      }
+
+      .entity-stats {
+        mat-chip-set {
+          mat-chip {
+            font-size: 11px;
+            height: 22px;
+            line-height: 22px;
+            border-radius: 11px;
+            background: #e2e8f0;
+            color: #64748b;
+            font-weight: 500;
+
+            &:first-child {
+              background: #dbeafe;
+              color: #1d4ed8;
+            }
+
+            &:nth-child(2) {
+              background: #dcfce7;
+              color: #166534;
+            }
+
+            &:nth-child(3) {
+              background: #fef3c7;
+              color: #92400e;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.entity-details {
+  padding: 16px 0;
+
+  .full-width {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+}
+
+.properties-section,
+.commands-section,
+.queries-section {
+  margin-bottom: 24px;
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      color: #333;
+    }
+  }
+}
+
+.properties-list {
+  .property-item {
+    margin-bottom: 16px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .property-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+
+      .property-name {
+        flex: 2;
+
+        .mat-mdc-form-field {
+          .mat-mdc-text-field-wrapper {
+            border-radius: 6px;
+          }
+        }
+      }
+
+      .property-type {
+        flex: 1;
+
+        .mat-mdc-form-field {
+          .mat-mdc-text-field-wrapper {
+            border-radius: 6px;
+          }
+        }
+      }
+
+      button {
+        flex-shrink: 0;
+        color: #ef4444;
+
+        &:hover {
+          background: #fef2f2;
+        }
+      }
+    }
+
+    .property-options {
+      display: flex;
+      gap: 20px;
+
+      mat-checkbox {
+        font-size: 14px;
+        font-weight: 500;
+
+        .mdc-checkbox {
+          border-radius: 4px;
+        }
+
+        &.mat-mdc-checkbox-checked {
+          .mdc-checkbox {
+            background-color: #667eea;
+            border-color: #667eea;
+          }
+        }
+      }
+    }
+  }
+}
+
+.commands-list,
+.queries-list {
+  mat-chip-set {
+    mat-chip {
+      margin: 4px;
+
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.entity-actions {
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 16px;
+
+  button {
+    width: 100%;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+
+  h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 400px) {
+  .panel-header {
+    padding: 16px;
+
+    h2 {
+      font-size: 20px;
+    }
+  }
+
+  .panel-content {
+    padding: 16px;
+  }
+
+  .add-entity-form {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      height: auto;
+      margin-top: 8px;
+    }
+  }
+
+  .property-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .property-options {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+// Custom scrollbar
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
