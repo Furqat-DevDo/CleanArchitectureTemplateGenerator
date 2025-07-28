@@ -1,8 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.Core", "CleanArchitectureTemplateGenerator.Core\CleanArchitectureTemplateGenerator.Core.csproj", "{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator", "src\backend\CleanArchitectureTemplateGenerator\CleanArchitectureTemplateGenerator.csproj", "{1B4FE07D-E5D7-4719-BD79-78656739E341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.CLI", "CleanArchitectureTemplateGenerator.CLI\CleanArchitectureTemplateGenerator.CLI.csproj", "{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.Core", "src\backend\CleanArchitectureTemplateGenerator.Core\CleanArchitectureTemplateGenerator.Core.csproj", "{615F2E2E-6238-4043-AC8D-43066DE51038}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{392E039A-78AB-4A64-B041-30E726E5E0AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{86BE6BBD-FA33-4496-BC4B-E9CA280446AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.Unit.Tests", "tests\CleanArchitectureTemplateGenerator.Unit.Tests\CleanArchitectureTemplateGenerator.Unit.Tests.csproj", "{633FEBF4-F9BF-44A2-911D-C7C4D4F759C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitectureTemplateGenerator.Integration.Tests", "tests\CleanArchitectureTemplateGenerator.Integration.Tests\CleanArchitectureTemplateGenerator.Integration.Tests.csproj", "{CAD7CB80-9049-462B-9046-63A613E7EBB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +18,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A6DB585-1682-44AC-A4A7-CC817CF97C3D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0008B55D-3652-4310-9BC2-DDB4CE5F8A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B4FE07D-E5D7-4719-BD79-78656739E341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B4FE07D-E5D7-4719-BD79-78656739E341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B4FE07D-E5D7-4719-BD79-78656739E341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B4FE07D-E5D7-4719-BD79-78656739E341}.Release|Any CPU.Build.0 = Release|Any CPU
+		{615F2E2E-6238-4043-AC8D-43066DE51038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{615F2E2E-6238-4043-AC8D-43066DE51038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{615F2E2E-6238-4043-AC8D-43066DE51038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{615F2E2E-6238-4043-AC8D-43066DE51038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{633FEBF4-F9BF-44A2-911D-C7C4D4F759C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{633FEBF4-F9BF-44A2-911D-C7C4D4F759C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{633FEBF4-F9BF-44A2-911D-C7C4D4F759C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{633FEBF4-F9BF-44A2-911D-C7C4D4F759C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD7CB80-9049-462B-9046-63A613E7EBB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD7CB80-9049-462B-9046-63A613E7EBB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD7CB80-9049-462B-9046-63A613E7EBB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD7CB80-9049-462B-9046-63A613E7EBB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1B4FE07D-E5D7-4719-BD79-78656739E341} = {392E039A-78AB-4A64-B041-30E726E5E0AA}
+		{615F2E2E-6238-4043-AC8D-43066DE51038} = {392E039A-78AB-4A64-B041-30E726E5E0AA}
+		{633FEBF4-F9BF-44A2-911D-C7C4D4F759C5} = {86BE6BBD-FA33-4496-BC4B-E9CA280446AE}
+		{CAD7CB80-9049-462B-9046-63A613E7EBB2} = {86BE6BBD-FA33-4496-BC4B-E9CA280446AE}
 	EndGlobalSection
 EndGlobal

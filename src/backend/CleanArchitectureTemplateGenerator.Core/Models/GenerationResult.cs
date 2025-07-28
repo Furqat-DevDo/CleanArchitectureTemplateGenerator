@@ -1,0 +1,43 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace CleanArchitectureTemplateGenerator.Core.Models;
+
+/// <summary>
+/// Request model for project generation
+/// </summary>
+public class GenerateProjectRequest
+{
+    [Required]
+    public ProjectMetadata Metadata { get; set; } = new();
+}
+
+/// <summary>
+/// Result of project generation
+/// </summary>
+public class GenerationResult
+{
+    public bool Success { get; set; }
+    public string? ErrorMessage { get; set; }
+    public string OutputPath { get; set; } = string.Empty;
+    public List<string> GeneratedFiles { get; set; } = new();
+}
+
+/// <summary>
+/// Result of metadata validation
+/// </summary>
+public class ValidationResult
+{
+    public bool IsValid { get; set; }
+    public List<string> Errors { get; set; } = new();
+    public List<string> Warnings { get; set; } = new();
+}
+
+/// <summary>
+/// Template information
+/// </summary>
+public class TemplateInfo
+{
+    public List<string> AvailableTemplates { get; set; } = new();
+    public string Version { get; set; } = string.Empty;
+    public DateTime LastUpdated { get; set; }
+}

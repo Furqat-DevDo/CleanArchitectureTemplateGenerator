@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "projectName": "TestECommerceApp",
+    "entities": [
+      {
+        "name": "Product",
+        "properties": [
+          { "name": "Id", "type": "Guid", "isKey": true },
+          { "name": "Name", "type": "string", "required": true },
+          { "name": "Price", "type": "decimal", "required": true },
+          { "name": "Description", "type": "string" }
+        ],
+        "commands": [
+          { "name": "CreateProduct", "type": "create" },
+          { "name": "UpdateProduct", "type": "update" },
+          { "name": "DeleteProduct", "type": "delete" }
+        ],
+        "queries": [
+          { "name": "GetProducts", "type": "list", "resultType": "List<ProductDto>" },
+          { "name": "GetProductById", "type": "single", "resultType": "ProductDto" }
+        ]
+      }
+    ],
+    "options": {
+      "useFluentValidation": true,
+      "useAutoMapper": true,
+      "useMediatR": true,
+      "database": "EntityFramework",
+      "authentication": "JWT"
+    }
+  }
+}
